@@ -1,0 +1,15 @@
+{% load static leaflet_tags %}
+<!doctype html>
+<html lang="de">
+<head>
+  <title>CORINE Land Cover Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}">
+  {% leaflet_css %}
+  {% leaflet_js %}
+</head>
+<body>
+  <div id="map"></div>
+  <script src="{% static 'map.js' %}"></script>
+</body>
+</html>
