@@ -23,3 +23,30 @@ plz_mapping = {
     'qkm': 'qkm',
     'geom': 'MULTIPOLYGON',
 }
+
+
+class CLC(models.Model):
+    """
+    The CORINE Land Cover data.
+    """
+    object_id = models.IntegerField()
+    alternative_id = models.CharField(max_length=12)
+    code_18 = models.IntegerField()
+    shape_leng = models.FloatField()
+    shape_area = models.FloatField()
+    area_ha = models.FloatField()
+    geom = models.MultiPolygonField(srid=25832)
+
+    def __str__(self):
+        return f"{ self.alternative_id }: { self.code_18 }"
+
+
+clc18_de_mapping = {
+    'object_id': 'OBJECTID',
+    'code_18': 'CODE_18',
+    'shape_leng': 'Shape_Leng',
+    'shape_area': 'Shape_Area',
+    'alternative_id': 'ID',
+    'area_ha': 'Area_Ha',
+    'geom': 'MULTIPOLYGON',
+}
