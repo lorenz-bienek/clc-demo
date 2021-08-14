@@ -23,9 +23,11 @@ async function renderPlz() {
             weight: 2,
             fillOpacity: 0.1
         })
+        plzInfo.update(layer.feature.properties)
     }
     function resetHighlight(e) {
         geojsonLayer.resetStyle(e.target)
+        plzInfo.update()
     }
     function onEachPlz(feature, layer) {
         layer.on({
@@ -38,5 +40,22 @@ async function renderPlz() {
         style: plzStyle,
         onEachFeature: onEachPlz
     }).addTo(map)
+
+    // Use a custom control to show information about a PLZ.
+    const plzInfo = L.control()
+    plzInfo.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'plz-info')
+        this.update()
+        return this._div
+    }
+    plzInfo.update = function (props) {
+        this._div.innerHTML = '<h4>PLZ Info</h4>' +  (props ?
+            '<b>' + props.name + '</b><br />'
+            + props.population + ' Einwohner' + '<br />'
+            + Math.round(props.qkm) + ' km<sup>2</sup>'
+            : 'Bewegen Sie den Mauszeiger auf ein Postleitzahlengebiet.')
+    }
+    plzInfo.addTo(map)
 }
+
 renderPlz()
