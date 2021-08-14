@@ -10,7 +10,14 @@ django==3.2.6
     # via
     #   -r requirements.in
     #   django-leaflet
+    #   djangorestframework
 django-leaflet==0.28.1
+    # via -r requirements.in
+djangorestframework==3.12.4
+    # via
+    #   -r requirements.in
+    #   djangorestframework-gis
+djangorestframework-gis==0.17
     # via -r requirements.in
 psycopg2==2.9.1
     # via -r requirements.in

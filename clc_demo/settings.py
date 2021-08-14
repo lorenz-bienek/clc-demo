@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'rest_framework',
+    'rest_framework_gis',
     'leaflet',
     'map',
 ]
@@ -91,6 +93,16 @@ DATABASES = {
         'HOST': os.environ.get('POSTGRESQL_ADDON_HOST', ''),
         'PORT': os.environ.get('POSTGRESQL_ADDON_PORT', ''),
     }
+}
+
+# Cache
+# Use database for cache
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'clc_demo_cache',
+    },
 }
 
 
