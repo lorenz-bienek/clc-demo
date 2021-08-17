@@ -7,7 +7,7 @@ body {
   height: 100%;
   width: 100%;
 }
-.plz-info {
+.plz-info, .plz-details {
   min-width: 27em;
   padding: 0.5em;
   font: 1.2em Arial, Helvetica, sans-serif;
@@ -15,7 +15,7 @@ body {
   background: rgba(255,255,255,0.8);
   border-radius: 0.5em;
 }
-.plz-info h4 {
+.plz-info h4, .plz-details h4 {
   margin: 0 0 0.5em;
-  color: #555555;
+  color: #444;
 }
